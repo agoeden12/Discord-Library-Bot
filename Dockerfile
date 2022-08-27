@@ -1,6 +1,5 @@
-FROM python
-WORKDIR /code
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-COPY . /code/
-CMD ["python3", "main.py"]
+FROM continuumio/miniconda3:4.6.14
+WORKDIR /library_bot
+COPY . /library_bot/
+
+RUN ["conda", "env", "update", "-f", "/library_bot/env.yaml"]

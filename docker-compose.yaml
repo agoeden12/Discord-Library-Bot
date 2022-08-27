@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+
+  discord_bot:
+    container_name: discord_game_library
+    build:
+      context: .
+      cache_from:
+        - continuumio/miniconda3:2022.05
+
+    entrypoint: ["", "activate", "library-bot", "&&", "python", "main.py"]
